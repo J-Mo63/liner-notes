@@ -11,17 +11,23 @@
 		<link rel="stylesheet" href="{% static 'res/bootstrap/dist/css/bootstrap.css' %}">
 	</head>
 	<body>
-		<br>
-		<h1 class="text-center">The Liner Notes</h1>
-		{% block content %}
-		{% endblock content %}
-		<script src="{% static 'main.js' %}"></script>
-	</body>
-	<foot class="sticky-footer">
-		<p class="text-center">
-			<span>_________________________________________</span>
+		<div id="wrap">
 			<br>
-			<span>Experience by <a href="http://sudo-code.com">Sudo-Code Software</a></span>
-		</p>
-	</foot>
+			<h1 class="text-center"><a href="{% url 'home' %}" class="black-link no-style-link">The Liner Notes</a></h1>
+			{% block content %}
+			{% endblock content %}
+			<script src="{% static 'main.js' %}"></script>
+		</div>
+		<br>
+		<br>
+		<br>
+		<footer class="footer">
+			<p class="text-center">
+				<span>_________________________________________</span>
+				<br>
+				<span>Experience by <a href="http://sudo-code.com" class="black-link">Sudo-Code Software</a></span>
+			</p>
+		</footer>
+
+	</body>
 </html>

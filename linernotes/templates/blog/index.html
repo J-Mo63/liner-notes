@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="container col-md-8">
+		<br>
+		<br>
+		<h3 class="text-center"><b>Reviews</h3>
+		<br>
+		<!-- <div class="review-container"> -->
+		{% for post in posts %}
+			<h4>• 
+				<a href="{% url 'show_post' post.id %}" class="black-link">
+					<b>{{post.artist}}</b> - {{post.title}}</h4>
+				</a>
+			<br>
+		{% endfor %}
+		<!-- </div> -->
+		<br>
+	</div>
+
+</div>
+{% endblock %}
