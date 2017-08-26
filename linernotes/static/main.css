@@ -1,5 +1,21 @@
+@font-face {
+  font-family: MessyTypewriter;
+  src: url("res/fonts/messy-typewriter.ttf");
+}
+
+@font-face {
+  font-family: CleanTypewriter;
+  src: url("res/fonts/clean-typewriter.ttf");
+}
+
+body {
+	font-family: CleanTypewriter !important;
+	background-color: #eec491 !important;
+	background-image: url("res/img/texture.png");
+}
+
 h1, h2, h3 {
-    font-size: 2.5em;
+    font-size: 2.5em !important;
 }
 
 a {
@@ -17,4 +33,15 @@ ul {
 a {
     text-decoration: none;
     color: #33D;
+}
+
+.body-text {
+  text-indent: 20px;
+}
+
+.sticky-footer {
+  width: 50vw;
+  position: absolute;
+  bottom: 20px;
+  left: 25vw;
 }

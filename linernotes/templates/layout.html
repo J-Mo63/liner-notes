@@ -8,11 +8,20 @@
 		<title>The Liner Notes</title>
 		<meta name="description" content="">
 		<link rel="stylesheet" href="{% static 'main.css' %}">
+		<link rel="stylesheet" href="{% static 'res/bootstrap/dist/css/bootstrap.css' %}">
 	</head>
 	<body>
-		<h1>Layout</h1>
+		<br>
+		<h1 class="text-center">The Liner Notes</h1>
 		{% block content %}
 		{% endblock content %}
 		<script src="{% static 'main.js' %}"></script>
 	</body>
+	<foot class="sticky-footer">
+		<p class="text-center">
+			<span>_________________________________________</span>
+			<br>
+			<span>Experience by <a href="http://sudo-code.com">Sudo-Code Software</a></span>
+		</p>
+	</foot>
 </html>
