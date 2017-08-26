@@ -6,6 +6,7 @@ urlpatterns = [
 	# Inventory module
     url(r'^$', views.home, name='home'),
     url(r'^(?P<id>\d+)/', views.show_post, name='show_post'),
+    # url(r'^genre/(?P<id>\d+)/', views.show_genre, name='show_genre'),
     url(r'^archive/', views.index_posts, name='index_posts'),
 
 	# Admin Module

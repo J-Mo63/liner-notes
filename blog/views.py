@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from blog.models import Post
+from blog.models import Genre
 
 def home(request):
 	try:
@@ -40,7 +41,18 @@ def show_post(request, id):
 		})
 
 def index_posts(request):
-	posts = Post.objects.all()
+	posts = Post.objects.all().order_by('-created_at')
+	genres = Genre.objects.all().order_by('name')
 	return render(request, 'blog/index.html', {
 			'posts': posts,
+			'genres': genres,
 		})
+
+# def show_genre(request, id):
+# 	try:
+# 		genre = Genre.objects.get(id=id)
+# 	except Genre.DoesNotExist:
+# 		raise Http404('This genre does not exist')
+# 	return render(request, 'blog/genre.html', {
+# 			'genre': genre,
+# 		})

@@ -1,21 +1,25 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<div class="container col-md-8">
+	<div class="container">
 		<br>
 		<br>
-		<h3 class="text-center"><b>Reviews</h3>
-		<br>
-		<!-- <div class="review-container"> -->
-		{% for post in posts %}
-			<h4>• 
-				<a href="{% url 'show_post' post.id %}" class="black-link">
-					<b>{{post.artist}}</b> - {{post.title}}</h4>
-				</a>
-			<br>
-		{% endfor %}
-		<!-- </div> -->
-		<br>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 col-md-offset-4">
+				<h3 class="text-center"><b>Archive</h3>
+				<br>
+				{% for post in posts %}
+					<h4>• 
+						<a href="{% url 'show_post' post.id %}" class="black-link">
+							<span><b>{{post.artist}}</b> - {{post.title}}</span>
+						</a>
+					</h4>
+					<br>
+				{% endfor %}
+				<br>
+			</div>
+		</div>
 	</div>
 
 </div>
