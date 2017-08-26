@@ -3,9 +3,17 @@ from django.http import Http404
 from blog.models import Post
 
 def home(request):
-	post = Post.objects.last();
-	last_post_id = post.get_previous_by_created_at().id
-	next_post_id = 0
+	try:
+		post = Post.objects.last();
+		last_post_id = post.get_previous_by_created_at().id
+		next_post_id = 0
+	except AttributeError:
+		post = 0
+		last_post_id = 0
+		next_post_id = 0
+	except Post.DoesNotExist:
+		last_post_id = 0
+		next_post_id = 0
 	return render(request, 'blog/show.html', {
 			'post': post,
 			'last_post_id': last_post_id,

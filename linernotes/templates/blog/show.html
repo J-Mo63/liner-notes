@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+	{% if post != 0 %}
 	<div class="container">
 		<div class="row text-center">
 			<div class="col-md-3"></div>
@@ -24,23 +25,30 @@
 			<div class="col-md-3"></div>
 		</div>
 	</div>
+	{% endif %}
 	<div class="container col-md-8">
 		<br>
 		<br>
-		<h3><b>{{post.artist}} - {{post.title}}</b></h3>
-		<div class="row">
-			<div class="col-md-4">
-				<img src="{{post.album_cover}}" alt="{{post.title}} album cover" width=100%>
-				<br>
-				<br>
-				<h5><b>Genre:</b> {{post.genre.name}}</h5>
-				<h5><b>Released:</b> {{post.release_date}}</h5>
-				<h5><b>Reviewer:</b> {{post.reviewer.first_name}} {{post.reviewer.last_name}}</h5>
+		{% if post != 0 %}
+			<h3><b>{{post.artist}} - {{post.title}}</b></h3>
+			<div class="row">
+				<div class="col-md-4">
+					<img src="{{post.album_cover}}" alt="{{post.title}} album cover" width=100%>
+					<br>
+					<br>
+					<h5><b>Genre:</b> {{post.genre.name}}</h5>
+					<h5><b>Released:</b> {{post.release_date}}</h5>
+					<h5><b>Reviewer:</b> {{post.reviewer.first_name}} {{post.reviewer.last_name}}</h5>
+				</div>
+				<div class="col-md-8">
+					<h5 class="body-text">{{post.body|linebreaks}}</h5>
+				</div>
 			</div>
-			<div class="col-md-8">
-				<h5 class="body-text">{{post.body|linebreaks}}</h5>
-			</div>
-		</div>
+		{% else %}
+			<br>
+			<br>
+			<h4 class="text-center">No Reviews to Display</h4>
+		{% endif %}
 		<br>
 	</div>
 
