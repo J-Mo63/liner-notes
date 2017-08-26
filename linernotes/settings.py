@@ -76,12 +76,14 @@ WSGI_APPLICATION = 'linernotes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'linernotes_test_db',
-        'USER': 'linernotes',
-        'PASSWORD': 'linernotes',
-        'HOST': 'localhost',
-        'PORT': '',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'linernotes_test_db',
+        # 'USER': 'linernotes',
+        # 'PASSWORD': 'linernotes',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
