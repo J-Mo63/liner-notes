@@ -79,14 +79,14 @@ WSGI_APPLICATION = 'linernotes.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'linernotes_test_db',
-        # 'USER': 'linernotes',
-        # 'PASSWORD': 'linernotes',
-        # 'HOST': 'localhost',
-        # 'PORT': '',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'linernotes_test_db',
+        'USER': 'linernotes',
+        'PASSWORD': 'linernotes',
+        'HOST': 'localhost',
+        'PORT': '',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -134,3 +134,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+env = os.environ.copy()
+db_url = env.get('DATABASE_URL', False)
+
+if db_url != False:
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
