@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxLengthValidator
 
 class Genre(models.Model):
 	name = models.CharField(max_length=200)
@@ -13,7 +14,7 @@ class Post(models.Model):
 	genre = models.ForeignKey(Genre)
 	release_date = models.DateField()
 	reviewer = models.ForeignKey(User)
-	body = models.TextField()
+	body = models.TextField(validators=[MaxLengthValidator(1000)])
 	album_cover = models.URLField(max_length=200)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
