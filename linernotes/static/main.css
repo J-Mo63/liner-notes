@@ -55,6 +55,13 @@ a {
   left: 25vw;
 }
 
+.logo {
+  width: 160px;
+}
+.logo:hover {
+  opacity: 0.8;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

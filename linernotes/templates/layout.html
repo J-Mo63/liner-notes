@@ -13,8 +13,11 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<br>
-			<h1 class="text-center"><a href="{% url 'home' %}" class="black-link no-style-link">The Liner Notes</a></h1>
+			<div class="text-center">
+				<a href="{% url 'home' %}" class="black-link no-style-link">
+					<img src="{% static 'res/img/logo.png' %}" class="logo">
+				</a>
+			</div>
 			{% block content %}
 			{% endblock content %}
 			<script src="{% static 'main.js' %}"></script>
